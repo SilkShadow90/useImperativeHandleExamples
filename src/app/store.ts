@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import segmentControl1Reducer, { segmentControl1 } from './slices/segmentControl1Slice';
+import segmentControl2Reducer, { segmentControl2 } from './slices/segmentControl2Slice';
+import segmentControl3Reducer, { segmentControl3 } from './slices/segmentControl3Slice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [segmentControl1]: segmentControl1Reducer,
+    [segmentControl2]: segmentControl2Reducer,
+    [segmentControl3]: segmentControl3Reducer,
   },
 });
 

@@ -26,6 +26,44 @@
   color: rgb(112, 76, 182);
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(117, 65, 166, 0.6);
+  color: white;
+  font-size: 24px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+button:active {
+  background-color: rgba(117, 65, 166, 1);
+}
+
+.block {
+  margin: 16px 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 4px 24px;
+}
+
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
@@ -35,5 +73,11 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
