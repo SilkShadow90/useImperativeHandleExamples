@@ -8,6 +8,11 @@ import {
   selectSegmentControlList,
 } from '../app/slices/segmentControl3Slice';
 import { SegmentNavigator } from '../features/segmentControl/components/SegmentNavigator';
+import { Flex } from '../features/UIKit/Flex';
+import { Row } from '../features/UIKit/Row';
+import { Block } from '../features/UIKit/Block';
+import { CodeHighlighter } from '../features/codeHighlighter/CodeHighlighter';
+import { codeHookWithReduxContainer, codeSegmentControlHookWithRedux } from '../examples';
 
 export const HookWithReduxContainer = React.memo(() => {
   const dispatch = useAppDispatch();
@@ -19,15 +24,23 @@ export const HookWithReduxContainer = React.memo(() => {
   }, [dispatch])
 
   return (
-    <div>
-      <h3>Hook with redux segment control</h3>
-      <SegmentControlHookWithRedux />
+    <Flex stretch>
+      <Row stretch>
+        <Block size={30}>
+          <h3>Hook with redux segment control</h3>
+          <SegmentControlHookWithRedux />
 
-      <SegmentNavigator
-        list={list}
-        activeIndex={controlIndex}
-        onChange={setIndex}
-      />
-    </div>
+          <SegmentNavigator
+            list={list}
+            activeIndex={controlIndex}
+            onChange={setIndex}
+          />
+        </Block>
+        <Block size={70}>
+          <CodeHighlighter code={codeSegmentControlHookWithRedux} />
+        </Block>
+      </Row>
+      <CodeHighlighter code={codeHookWithReduxContainer} />
+    </Flex>
   )
 })

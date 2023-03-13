@@ -9,9 +9,10 @@ type Props = {
   onChange(index: number): void;
   list: string[];
   withNavigator?: boolean
+  widthItem?: number
 }
 
-export const SegmentControl = ({ currentIndex, onChange, list, withNavigator }: Props) => {
+export const SegmentControl = ({ currentIndex, onChange, list, withNavigator, widthItem }: Props) => {
   const setIndex = useCallback((index: number) => () => {
     onChange(index)
   }, [onChange])
@@ -25,6 +26,7 @@ export const SegmentControl = ({ currentIndex, onChange, list, withNavigator }: 
             value={item}
             isActive={currentIndex === index}
             onClick={setIndex(index)}
+            widthItem={widthItem}
           />
         ))}
       </SegmentLayout>
